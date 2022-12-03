@@ -25,7 +25,7 @@ class CalendarDataGetter(object):
     def get_data(self) -> str:
         if not os.path.exists(self.saved_input_fname):
             self.input_data = rq.get(
-                self.input_url, cookies={"session": AOC_SESSION}, headers={"user-agent": "github.com/Joms94/Advent-of-Code-2022/blob/main/data_getter.py by Joms94"
+                self.input_url, cookies={"session": AOC_SESSION}, headers={"user-agent": "github.com/Joms94/Advent-of-Code-2022/blob/main/data_getter.py by Joms94."}
             ).text
             with open(self.saved_input_fname, "w") as data_to_write:
                 data_to_write.write(self.input_data)
