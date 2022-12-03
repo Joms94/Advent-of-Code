@@ -22,7 +22,7 @@ class CalendarChallenge(object):
             f"aoc_input_{self.current_year}_day_{self.advent_day}.txt"
         )
 
-    def get_data(self) -> str:
+    def _get_data(self) -> str:
         if not os.path.exists(self.saved_input_fname):
             self.input_data = rq.get(
                 self.input_url, cookies={"session": AOC_SESSION}, headers={"user-agent": "github.com/Joms94/Advent-of-Code-2022/blob/main/data_getter.py by Joms94."}
@@ -38,7 +38,7 @@ class CalendarChallenge(object):
 
 def main(advent_day: int = 1):
     aoc_data_getter = CalendarChallenge(advent_day=advent_day)
-    aoc_data_getter.get_data()
+    aoc_data_getter._get_data()
 
 
 if __name__ == "__main__":
