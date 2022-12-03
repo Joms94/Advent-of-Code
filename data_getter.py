@@ -11,7 +11,7 @@ Gets puzzle input from the "Advent of Code" site.
 """
 
 
-class CalendarDataGetter(object):
+class CalendarChallenge(object):
     def __init__(self, advent_day: int) -> None:
         self.current_year = datetime.date.today().year
         self.advent_day = advent_day
@@ -37,7 +37,7 @@ class CalendarDataGetter(object):
 
 
 def main(advent_day: int = 1):
-    aoc_data_getter = CalendarDataGetter(advent_day=advent_day)
+    aoc_data_getter = CalendarChallenge(advent_day=advent_day)
     aoc_data_getter.get_data()
 
 
