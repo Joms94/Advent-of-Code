@@ -59,7 +59,7 @@ class RucksackManager(CalendarChallenge):
         # Have I goofed up the grouping?
         for ind, group in enumerate(self.grouped_sacks):
             if len(group) != 3:
-                print(f"Warning! Rucksack {ind} does not contain three sacks.")
+                print(f"Warning! Group {ind} does not contain three sacks.")
 
     def _score_sacks_by_group(self):
         sack_group_content = []
