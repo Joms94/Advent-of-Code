@@ -2,7 +2,7 @@ from data_getter import CalendarChallenge
 
 
 class CleanupCrew(CalendarChallenge):
-    def __init__(self, advent_day: int=4) -> None:
+    def __init__(self, advent_day: int = 4) -> None:
         super().__init__(advent_day)
         self.elf_pairs = self._get_data().splitlines()
         self.elf_ranges = []
@@ -10,7 +10,12 @@ class CleanupCrew(CalendarChallenge):
 
     def _convert_pairs_to_nums(self):
         for pair_ind, elf_pair in enumerate(self.elf_pairs):
-            self.elf_ranges.append([list(range(*[int(bound) for bound in elf.split("-")])) for elf in elf_pair.split(",")])
+            self.elf_ranges.append(
+                [
+                    list(range(*[int(bound) for bound in elf.split("-")]))
+                    for elf in elf_pair.split(",")
+                ]
+            )
             for idx, elf in enumerate(elf_pair.split(",")):
                 if int(elf.split("-")[0]) == int(elf.split("-")[1]):
                     self.elf_ranges[pair_ind][idx] = [str(elf.split("-")[0])]
@@ -19,7 +24,7 @@ class CleanupCrew(CalendarChallenge):
         for range_pair in self.elf_ranges:
             for ind in range(0, 2):
                 try:
-                    range_pair[ind].append(range_pair[ind][-1]+1)
+                    range_pair[ind].append(range_pair[ind][-1] + 1)
                 except IndexError:
                     pass
                 except TypeError:
